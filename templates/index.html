@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIRWATCH AI | Black Clover Guardian</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<div class="magic-intro" id="magic-intro" aria-label="AIRWATCH AI introduction">
+  <div class="intro-stars"></div><div class="intro-circle circle-one"></div><div class="intro-circle circle-two"></div>
+  <div class="intro-grimoire"><div class="grimoire-clover">☘</div><div class="grimoire-lines"></div></div>
+  <div class="intro-copy"><div class="intro-kicker">A NEW GRIMOIRE HAS AWAKENED</div><div class="intro-wordmark">AIRWATCH<span> AI</span></div><div class="intro-rule"></div><p>THE GUARDIAN OF CLEAN AIR</p><small>ENVIRONMENTAL INTELLIGENCE • MAGIC KNIGHT PROTOCOL</small>
+  <button type="button" id="enter-dashboard" class="intro-enter">ENTER THE DASHBOARD <span>↗</span></button></div>
+  <img class="intro-guardian" src="/static/airwatch-guardian.png" alt="AirWatch guardian anime artwork">
+  <div class="intro-bottom">SCAN THE AIR · PROTECT THE KINGDOM · BREATHE BETTER</div>
+</div>
+<div class="shell">
+<aside class="sidebar"><div class="brand"><span class="logo">◉</span><div><b>AIRWATCH<span class="brand-ai">.AI</span></b><small>ENVIRONMENTAL INTELLIGENCE</small></div></div>
+<div class="side-system"><span class="pulse"></span> SYSTEM ONLINE <small>ENVIRONMENT SCAN READY</small></div>
+<nav><a class="active" href="#top">⌂ &nbsp; Command Center</a><a href="#weather">◉ &nbsp; Live Weather</a><a href="#live-air">⌁ &nbsp; Air Intelligence</a><a href="#nearest-station">⌖ &nbsp; Station Network</a><a href="#predict">✦ &nbsp; AI Simulator</a><a href="#history">▤ &nbsp; Scan History</a></nav>
+<div class="side-note"><div class="mini-avatar">AW</div><b>Guardian protocol</b><small>Monitor • Understand • Protect</small><div class="side-foot">BUILD 2.6.0 // AIRWATCH</div></div></aside>
+<main id="top"><header><div><div class="eyebrow">ENVIRONMENTAL MONITORING / INDIA <span class="live-dot"></span></div><h1>Command <em>Center</em></h1><p>Read the atmosphere. Protect your next move.</p></div><div class="city"><label for="city">TARGET LOCATION</label><input id="city" value="Delhi" aria-label="Search city"><button class="locate-btn" onclick="useMyLocation()">⌖ GPS LOCATE</button><button class="refresh-btn" onclick="loadAll()">↻ SCAN</button><div id="precise-location" class="location-detail">City search: Delhi</div></div></header>
+<section class="hero"><div class="hero-copy"><div class="eyebrow light">AIRWATCH AI // GUARDIAN SYSTEM <span class="hero-live">● LIVE PROTOCOL</span></div><h2>The air around you<br><em>is your environment.</em></h2><p>Location-aware pollution intelligence, real-world precautions and cleaner choices — powered by data.</p><div class="hero-meta"><span>◈ OPEN-METEO</span><span>◈ OPENAQ NETWORK</span><span>◈ AI INSIGHTS</span></div><a class="hero-cta" href="#live-air">INITIATE AIR SCAN <span>↗</span></a></div><div class="hero-art"><div class="hero-grid"></div><div class="hero-ring ring-a"></div><div class="hero-ring ring-b"></div><img src="/static/airwatch-guardian.png" alt="AirWatch anime environmental guardian" class="guardian-art"><div class="art-chip chip-top">GUARDIAN // 01</div><div class="art-chip chip-bottom">PLANETARY HEALTH MONITOR</div></div><div class="hero-index">01<br><span>ATMOSPHERE</span></div></section>
+<section class="quick-strip"><div><span class="strip-icon">⌖</span><span><b>LOCATION INTELLIGENCE</b><small>GPS / CITY SEARCH</small></span></div><div><span class="strip-icon">◉</span><span><b>LIVE WEATHER</b><small>OPEN-METEO FEED</small></span></div><div><span class="strip-icon">⌁</span><span><b>AIR QUALITY</b><small>MODEL + STATION DATA</small></span></div><div><span class="strip-icon">✦</span><span><b>HEALTH GUIDANCE</b><small>EXPOSURE MANAGEMENT</small></span></div></section>
+<section id="weather"><div class="section-head"><div><div class="eyebrow">LIVE CONDITIONS</div><h2>Weather snapshot</h2></div><span class="status" id="weather-status">Connecting…</span></div><div class="metrics">
+<div class="metric"><span>Temperature</span><strong id="temp">—</strong><small>°C · current</small></div><div class="metric"><span>Humidity</span><strong id="humidity">—</strong><small>Relative humidity</small></div><div class="metric"><span>Wind speed</span><strong id="wind">—</strong><small>km/h</small></div><div class="metric"><span>Precipitation</span><strong id="rain">—</strong><small>mm</small></div></div></section>
+<section class="two-col"><div class="panel"><div class="section-head"><div><div class="eyebrow">AIR QUALITY DATA</div><h2>Monitoring network</h2></div><span class="tag">OpenAQ</span></div><div id="aq-status" class="notice">Checking API configuration…</div><p class="muted">Live pollution readings are not invented. Add your OpenAQ key on the server to discover monitoring stations.</p></div>
+<div class="panel"><div class="section-head"><div><div class="eyebrow">HOW IT WORKS</div><h2>Data integrity</h2></div><span class="tag green">Verified sources</span></div><ul class="checks"><li>Weather data is fetched live from Open-Meteo.</li><li>Pollution data is separate from weather data.</li><li>Manual estimates are labelled, not called live AQI.</li></ul></div></section>
+
+
+<section id="nearest-station"><div class="section-head"><div><div class="eyebrow">PHYSICAL MONITORING NETWORK</div><h2>Nearest actual monitoring station</h2></div><span class="tag">OpenAQ · within 25 km</span></div>
+<div class="panel"><div id="station-status" class="notice">Use your live location to search for the nearest monitoring station.</div>
+<div id="station-details" class="station-details hidden"><div><div class="eyebrow">NEAREST STATION</div><h3 id="station-name">—</h3><p id="station-distance" class="muted"></p></div><div id="station-readings" class="pollutant-grid"></div><p id="station-note" class="disclaimer"></p></div>
+</div></section>
+
+<section id="live-air"><div class="section-head"><div><div class="eyebrow">AUTOMATIC LOCATION-BASED ESTIMATE</div><h2>Live air-quality report</h2></div><span class="status" id="air-live-status">Loading…</span></div>
+<div class="panel air-report">
+  <div class="aqi-summary"><div><div class="eyebrow">MODELLED US AQI</div><strong id="live-aqi">—</strong><span id="live-category" class="aqi-category">Waiting for data</span></div><div class="aqi-note" id="live-source">Fetching current model estimate…</div></div>
+  <div class="pollutant-grid" id="pollutant-grid"></div>
+  <div class="report-columns"><div><h3>Health precautions</h3><ul id="health-advice" class="report-list"><li>Loading report…</li></ul></div><div><h3>How to manage exposure</h3><ul id="manage-advice" class="report-list"><li>Loading recommendations…</li></ul></div></div>
+  <p class="disclaimer" id="air-limitations">Air-quality data will be labelled with its source and limitations.</p>
+</div></section>
+
+<section id="predict"><div class="section-head"><div><div class="eyebrow">INTERACTIVE TOOL</div><h2>Pollution scenario estimator</h2></div><span class="tag">Manual inputs</span></div><div class="panel"><p class="muted">Enter pollutant concentrations in the expected units. This calculates a breakpoint-based indicative AQI where sufficient inputs are available.</p>
+<div class="form-grid"><label>PM2.5 (µg/m³)<input id="pm25" type="number" min="0" value="35"></label><label>PM10 (µg/m³)<input id="pm10" type="number" min="0" value="70"></label><label>NO₂ (µg/m³)<input id="no2" type="number" min="0" value="25"></label><label>O₃ (µg/m³)<input id="o3" type="number" min="0" value="40"></label></div><button class="primary" onclick="predict()">Calculate indicative AQI →</button><div id="result" class="result hidden"></div></div></section>
+<section id="history"><div class="section-head"><div><div class="eyebrow">LOCAL DATABASE</div><h2>Recent scenarios</h2></div><button class="subtle" onclick="loadHistory()">Refresh history</button></div><div class="panel table-wrap"><table><thead><tr><th>Time (UTC)</th><th>Location</th><th>Indicative AQI</th><th>Category</th></tr></thead><tbody id="history-body"><tr><td colspan="4">No scenarios saved yet.</td></tr></tbody></table></div></section>
+<section id="mission"><div class="section-head"><div><div class="eyebrow">GUARDIAN FIELD GUIDE</div><h2>Small actions. Cleaner atmosphere.</h2></div><span class="tag green">ACTION PROTOCOL</span></div><div class="mission-grid"><article class="mission-card"><span>01 / PERSONAL</span><h3>Protect your lungs</h3><p>Check AQI before outdoor workouts. Reduce strenuous activity when pollution is high.</p><button onclick="showGuardianTip(0)">VIEW PROTOCOL ↗</button></article><article class="mission-card"><span>02 / INDOORS</span><h3>Build a clean zone</h3><p>Keep windows closed during severe outdoor pollution and use a suitable HEPA purifier if available.</p><button onclick="showGuardianTip(1)">VIEW PROTOCOL ↗</button></article><article class="mission-card"><span>03 / COMMUNITY</span><h3>Cut local emissions</h3><p>Avoid waste burning, vehicle idling and unnecessary combustion. Choose shared or public transport.</p><button onclick="showGuardianTip(2)">VIEW PROTOCOL ↗</button></article></div></section>
+<footer><span>AIRWATCH AI // B.TECH CSE (AI & ML) PROJECT</span><span>DATA: OPEN-METEO · OPENAQ · OPENSTREETMAP</span></footer>
+</main></div>
+<div class="guardian-widget" id="guardian-widget">
+  <section class="aero-chat" id="aero-chat" aria-label="Chat with Aero">
+    <div class="aero-chat-head"><div class="aero-avatar">✦</div><div><b>Talk to Aero</b><small>YOUR AIR QUALITY COMPANION · AI ASSISTANT</small></div><button type="button" class="aero-close" onclick="toggleGuardian()" aria-label="Close chat">×</button></div>
+    <div class="aero-chat-body" id="aero-chat-body"><div class="chat-bubble aero-bubble">Hi! I'm Aero 🌿 Ask me about the AQI near you, health precautions, weather or ways to reduce pollution. I'll use the latest reading shown on your dashboard when available.</div></div>
+    <div class="aero-chat-prompts"><button type="button" onclick="askAeroPrompt('What precautions should I take right now?')">Precautions</button><button type="button" onclick="askAeroPrompt('Is it safe to exercise outdoors?')">Outdoor exercise</button></div>
+    <form class="aero-chat-form" onsubmit="sendAeroMessage(event)"><input id="aero-input" maxlength="1200" placeholder="Ask Aero anything…" autocomplete="off"><button type="submit" id="aero-send">Send ↗</button></form>
+    <div class="aero-mode" id="aero-mode">AQI-aware assistant · local guidance ready</div>
+  </section>
+  <button class="guardian-toggle" onclick="toggleGuardian()" aria-label="Chat with Aero"><img src="/static/airwatch-guardian.png" alt=""><span>CHAT WITH AERO</span></button>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/static/app.js"></script>
+<script>
+(()=>{
+ const intro=document.getElementById('magic-intro');
+ const enter=document.getElementById('enter-dashboard');
+ if(!intro) return;
+ const close=()=>{if(intro.classList.contains('leaving'))return;intro.classList.add('leaving');document.body.classList.remove('intro-lock');setTimeout(()=>intro.remove(),950)};
+ document.body.classList.add('intro-lock');
+ enter?.addEventListener('click',close);
+ window.addEventListener('keydown',e=>{if(e.key==='Escape')close()},{once:true});
+ window.setTimeout(close,5600);
+})();
+</script></body></html>
